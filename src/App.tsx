@@ -2,7 +2,6 @@
 import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Cloud, Clouds, useTexture } from "@react-three/drei";
-import backgroundImage from "./assets/background.png";
 import manImage from "./assets/man.png";
 import cloudTexture from "./assets/cloud.png";
 import { useMemo, useRef, useEffect, useState } from "react";
@@ -84,15 +83,15 @@ function useScrollAccumulator() {
       },
    };
 }
-const createBackupSlot = (slot: CloudSlot): CloudSlot => {
-   return {
-      id: slot.id + 100,
-      zRange: [slot.zRange[0], slot.zRange[1]],
-      xRange: [slot.xRange[0], slot.xRange[1]],
-      yRange: [slot.yRange[0], slot.yRange[1]],
-      countRange: [slot.countRange[1], slot.countRange[0]],
-   };
-};
+// const createBackupSlot = (slot: CloudSlot): CloudSlot => {
+//    return {
+//       id: slot.id + 100,
+//       zRange: [slot.zRange[0], slot.zRange[1]],
+//       xRange: [slot.xRange[0], slot.xRange[1]],
+//       yRange: [slot.yRange[0], slot.yRange[1]],
+//       countRange: [slot.countRange[1], slot.countRange[0]],
+//    };
+// };
 
 function BackgroundImage() {
    const texture = useTexture(manImage);
@@ -180,7 +179,7 @@ function CloudTunnel({
       // }));
    }, [count, spreadX, spreadY, nearZ, farZ, sizeScale]);
 
-   const span = Math.abs(farZ - nearZ);
+   // const span = Math.abs(farZ - nearZ);
 
    const refs = useRef<Record<number, THREE.Object3D>>({});
    const setRef = (id: number) => (el: any) => {
