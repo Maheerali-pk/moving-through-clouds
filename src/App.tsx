@@ -261,8 +261,6 @@ function CloudTunnel({
                      speed={c.speed}
                      volume={20}
                      concentrate="inside"
-                     width={c.width}
-                     depth={c.depth}
                      segments={20}
                   />
                </group>
